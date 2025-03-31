@@ -1,7 +1,5 @@
-import { config } from "dotenv";
-config({ path: "./Config/config.env" }); // Load .env first
-
 import express from "express";
+import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { connectDB } from "./Database/db.js";
@@ -9,6 +7,7 @@ import { errorMiddlewares } from "./Middlewares/errorMiddlewares.js";
 import authRouter from "./routes/authRouter.js";
 
 export const app = express();
+config({ path: "./Config/config.env" }); // Load .env first
 
 app.use(
   cors({
